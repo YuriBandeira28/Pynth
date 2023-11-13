@@ -20,9 +20,8 @@ class Quadrados():
         glEnd()
 
 
-class Cores():
+class Funcoes():
     
-
     def __init__(self, win):
         self.cor = (0, 0, 0) #cor padrão é preto
         self.win = win
@@ -32,7 +31,16 @@ class Cores():
     def define_cor(self, cor):
         self.cor = cor
 
+
+    def define_3d(self):
+        print("chamo")
+        desenha_3d = True
+        # glRotate(20, 1, 1, 0)
+        # glTranslatef(0.0, 0.0, )
+
+
     def botoes(self):
+        #cores
         tkinter.Button(self.win, bg="red",width=2, height=1, command=lambda: self.define_cor((1.0, 0.0, 0.0))).grid(row=1, column=0)
         tkinter.Button(self.win, bg="green",width=2, height=1, command=lambda: self.define_cor((0.0, 1.0, 0.0))).grid(row=1, column=1)
         tkinter.Button(self.win, bg="blue",width=2, height=1, command=lambda: self.define_cor((0.0, 0.0, 1.0))).grid(row=2, column=0)
@@ -40,6 +48,9 @@ class Cores():
         tkinter.Button(self.win, bg="white",width=2, height=1, command=lambda: self.define_cor((1.0, 1.0, 1.0))).grid(row=3, column=0)
         tkinter.Button(self.win, bg="black",width=2, height=1, command=lambda: self.define_cor((0.0, 0.0, 0.0))).grid(row=3, column=1)
 
+        # define 3d
+        tkinter.Button(self.win, text="3D",width=2, height=1, command=self.define_3d).grid(row=5, column=1)
+        
 
 
 
