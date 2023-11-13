@@ -70,11 +70,16 @@ while True:
         current_pos = (pygame.mouse.get_pos()[0] / display[0] * 2 - 1,
                        1 - pygame.mouse.get_pos()[1] / display[1] * 2)
         Quadrados.desenha_quadrado(start_pos, current_pos, cor)
-        
+    
+    
+    if Funcoes.desenha_3d == True:
+        glRotatef(75, 1, 0, 0)
+
     for quadrado in Quadrados.quadrados:
         glPushMatrix()
         Quadrados.desenha_quadrado(quadrado[0], quadrado[1],  quadrado[2])
         glPopMatrix()
+
     pygame.display.flip()
     pygame.time.wait(10)
     win.update()

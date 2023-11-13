@@ -25,6 +25,7 @@ class Funcoes():
     def __init__(self, win):
         self.cor = (0, 0, 0) #cor padrão é preto
         self.win = win
+        self.desenha_3d = False
         self.botoes()
 
     
@@ -34,8 +35,8 @@ class Funcoes():
 
     def define_3d(self):
         print("chamo")
-        desenha_3d = True
-        glRotatef(90, 1, 0, 0)
+        self.desenha_3d = True
+        # glRotatef(90, 0, 1, 0)
         # glTranslatef(0.0, 0.0, 1)
 
 
