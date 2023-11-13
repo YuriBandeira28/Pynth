@@ -35,8 +35,8 @@ class Funcoes():
     def define_3d(self):
         print("chamo")
         desenha_3d = True
-        # glRotate(20, 1, 1, 0)
-        # glTranslatef(0.0, 0.0, )
+        glRotatef(90, 1, 0, 0)
+        # glTranslatef(0.0, 0.0, 1)
 
 
     def botoes(self):

@@ -14,7 +14,7 @@ window = pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
 # Defina a perspectiva e a posição da câmera
 gluPerspective(45, (display[0] / display[1]), 0.1, 50.0)
-glTranslatef(0.0, 0.0, -2)
+glTranslatef(0.0, 0.0, -3)
 
 font = pygame.font.SysFont("Arial", 24)
 
@@ -27,20 +27,10 @@ win.title("CORES")
 
 Funcoes = funcoes.Funcoes(win)
 
-def desenha_fundo():
-    glBegin(GL_QUADS)
-    glColor3f(1, 1, 1)
-    glVertex3f(-1, -1, -2)
-    glVertex3f(1, -1, -2)
-    glVertex3f(1, 1, -2)
-    glVertex3f(-1, 1, -2)
-    glEnd()
-
-
 desenhando_placeholder = False
 while True:
     glLoadIdentity()
-    glClearColor(0.8 ,0.8 ,0.8 ,1)
+    glClearColor(1, 1, 1 ,1)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     cor = Funcoes.cor
@@ -82,9 +72,9 @@ while True:
         Quadrados.desenha_quadrado(start_pos, current_pos, cor)
         
     for quadrado in Quadrados.quadrados:
+        glPushMatrix()
         Quadrados.desenha_quadrado(quadrado[0], quadrado[1],  quadrado[2])
-
-    desenha_fundo()
+        glPopMatrix()
     pygame.display.flip()
     pygame.time.wait(10)
     win.update()
