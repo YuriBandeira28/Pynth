@@ -1,0 +1,51 @@
+
+Objetivo
+
+O objetivo deste projeto é aplicar os conceitos aprendidos em Computação Gráfica para desenvolver um editor gráfico 
+que permita a criação de formas em 2D e 3D. Este projeto deve ser desenvolvido em Python, utilizando as bibliotecas PyOpenGL e PyGame.
+
+ 
+
+Requisitos
+
+Linguagem e Bibliotecas: O projeto deve ser desenvolvido em Python, utilizando as bibliotecas PyOpenGL para modelagem 
+e PyGame para manipulação de eventos.
+
+Desenho com o Mouse: O ambiente deve permitir o desenho ou colocação de formas (2D e 3D) utilizando o mouse.
+Por exemplo, para desenhar um círculo ou uma esfera, o primeiro clique do mouse pode definir o centro da forma, 
+e a distância do centro ao segundo clique definiria o raio.
+
+Controles via Teclado: Embora um menu gráfico não seja necessário (não vimos isso em aula),
+o programa deve permitir a seleção de formas, cores, espessura de linha, tipo de traçado, etc., através do teclado.
+
+Iluminação: O ambiente deve permitir o uso de iluminação, sem o qual não será possível observar corretamente as estruturas 3D.
+
+Exportação de Imagem: O programa deve permitir a exportação da tela atual para um arquivo de imagem
+(JPEG, PNG ou outro formato de sua escolha) - pesquise para ver como isso pode ser feito.
+
+Salvar/Carregar o Ambiente (Opcional): Como um desafio opcional, permitir salvar o ambiente criado para 
+que possa ser carregado posteriormente.
+
+Movimentação da Folha de Desenho: O ambiente deve permitir a movimentação da "folha" de desenho,
+permitindo visualizá-la de diferentes ângulos.
+
+Formas 2D e 3D: O editor deve permitir inserir tanto formas 2D como 3D na área de edição. Você define como,
+por exemplo, as 2D podem ser "deitadas" sobre a "folha" e as 3D podem ter o plano da folha como base, ou centro.
+
+ 
+
+Critérios de Avaliação na Apresentação
+
+- Funcionalidade
+
+- Criatividade
+
+- Qualidade do Código
+
+- Arguição durante a apresentação
+
+ 
+
+Liberdade Criativa
+
+Sinta-se livre para adicionar funcionalidades e estilizações que não foram cobertas nos requisitos! A criatividade será um componente valioso na avaliação do seu projeto.
