@@ -73,7 +73,7 @@ while True:
     
     
     if Funcoes.desenha_3d == True:
-        glRotatef(75, 1, 0, 0)
+        glRotatef(30, 0, 0, 1)
 
     for quadrado in Quadrados.quadrados:
         glPushMatrix()
