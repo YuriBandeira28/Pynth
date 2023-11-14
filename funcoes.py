@@ -34,10 +34,9 @@ class Funcoes():
 
 
     def define_3d(self):
-        print("chamo")
         self.desenha_3d = True
-        # glRotatef(90, 0, 1, 0)
-        # glTranslatef(0.0, 0.0, 1)
+    def define_2d(self):
+        self.desenha_3d = False
 
 
     def botoes(self):
@@ -50,7 +49,8 @@ class Funcoes():
         tkinter.Button(self.win, bg="black",width=2, height=1, command=lambda: self.define_cor((0.0, 0.0, 0.0))).grid(row=3, column=1)
 
         # define 3d
-        tkinter.Button(self.win, text="3D",width=2, height=1, command=self.define_3d).grid(row=5, column=1)
+        tkinter.Button(self.win, text="3D",width=2, height=1, command=self.define_3d).grid(row=5, column=2)
+        tkinter.Button(self.win, text="2D",width=2, height=1, command=self.define_2d).grid(row=5, column=0)
         
 
 

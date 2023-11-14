@@ -28,6 +28,8 @@ win.title("CORES")
 Funcoes = funcoes.Funcoes(win)
 
 desenhando_placeholder = False
+movendo = False
+move_x, move_y = 0,0
 while True:
     glLoadIdentity()
     glClearColor(1, 1, 1 ,1)
@@ -64,7 +66,24 @@ while True:
 
                 # print(f"Posição inicial: {(start_posX, start_posY)}, Posição final: {(end_posX, end_posY)}")
                 Quadrados.quadrados.append(((start_posX, start_posY), (end_posX, end_posY), cor))
+        else:
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Botão esquerdo pressionado
+                movendo = True 
+                
+                ini_move_x, ini_move_y = pygame.mouse.get_pos()
+                ini_move_x = ini_move_x / display[0] * 2 - 1
+                ini_move_y = 1 - ini_move_y / display[1] * 2
+
+            elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:  # Botão esquerdo liberado
+                movendo = False
+
+                fim_move_x, fim_move_y = pygame.mouse.get_pos()
+                fim_move_x = fim_move_x / display[0] * 2 - 1
+                fim_move_y = 1 - fim_move_y / display[1] * 2
+
+
     # if desenhando_circulo:
+    # if movendo:
 
     if desenhando_placeholder:
         current_pos = (pygame.mouse.get_pos()[0] / display[0] * 2 - 1,
@@ -74,6 +93,8 @@ while True:
     
     if Funcoes.desenha_3d == True:
         glRotatef(30, 0, 0, 1)
+
+
 
     for quadrado in Quadrados.quadrados:
         glPushMatrix()
