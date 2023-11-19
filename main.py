@@ -13,8 +13,11 @@ display = (980, 720)
 window = pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
 
 # Defina a perspectiva e a posição da câmera
-gluPerspective(45, (display[0] / display[1]), 0.1, 50.0)
-glTranslatef(0.0, 0.0, -3)
+gluPerspective(45, (display[0] / display[1]), 0.1, 0.0)
+glTranslatef(0.0, 0.0, 3)
+
+
+
 
 font = pygame.font.SysFont("Arial", 24)
 
@@ -30,6 +33,8 @@ Funcoes = funcoes.Funcoes(win)
 desenhando_placeholder = False
 movendo = False
 move_x, move_y = 0,0
+
+
 while True:
     glLoadIdentity()
     glClearColor(1, 1, 1 ,1)
@@ -84,22 +89,24 @@ while True:
 
     # if desenhando_circulo:
     # if movendo:
-
+    if Funcoes.desenha_3d == True:
+        glRotatef(30, 1, 0, 1)
+        
     if desenhando_placeholder:
         current_pos = (pygame.mouse.get_pos()[0] / display[0] * 2 - 1,
                        1 - pygame.mouse.get_pos()[1] / display[1] * 2)
         Quadrados.desenha_quadrado(start_pos, current_pos, cor)
     
     
-    if Funcoes.desenha_3d == True:
-        glRotatef(30, 0, 0, 1)
-
+   
 
 
     for quadrado in Quadrados.quadrados:
+        # glLoadIdentity()
         glPushMatrix()
         Quadrados.desenha_quadrado(quadrado[0], quadrado[1],  quadrado[2])
         glPopMatrix()
+
 
     pygame.display.flip()
     pygame.time.wait(10)

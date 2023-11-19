@@ -11,13 +11,96 @@ class Quadrados():
 
 
     def desenha_quadrado(pos_ini, pos_fim, cor):
+        glPushMatrix()
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+
+        #faz os preenchidos
         glColor3f(cor[0], cor[1], cor[2])
         glBegin(GL_QUADS)
+
+        #frente
+        glVertex3f(pos_ini[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_fim[1], 1)
+        glVertex3f(pos_ini[0], pos_fim[1], 1)
+        
+        #Esquerda
+        glVertex3f(pos_ini[0], pos_ini[1], 1)
+        glVertex3f(pos_ini[0], pos_fim[1], 1)
+        glVertex3f(pos_ini[0], pos_fim[1], -1)
         glVertex3f(pos_ini[0], pos_ini[1], -1)
+
+        #baixo
+        glVertex3f(pos_ini[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], 1)
         glVertex3f(pos_fim[0], pos_ini[1], -1)
+        glVertex3f(pos_ini[0], pos_ini[1], -1)
+
+        #tras
+        glVertex3f(pos_fim[0], pos_fim[1], -1)
+        glVertex3f(pos_fim[0], pos_ini[1], -1)
+        glVertex3f(pos_ini[0], pos_ini[1], -1)
+        glVertex3f(pos_ini[0], pos_fim[1], -1)
+
+
+        #Direita
+        glVertex3f(pos_fim[0], pos_fim[1], -1)
+        glVertex3f(pos_fim[0], pos_fim[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], -1)
+
+        #cima
         glVertex3f(pos_fim[0], pos_fim[1], -1)
         glVertex3f(pos_ini[0], pos_fim[1], -1)
+        glVertex3f(pos_ini[0], pos_fim[1], 1)
+        glVertex3f(pos_fim[0], pos_fim[1], 1)       
         glEnd()
+
+        #FAZ AS BORDAS
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE)
+        glColor3f(1, 1, 1)
+        glBegin(GL_QUADS)
+
+        #frente
+        glVertex3f(pos_ini[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_fim[1], 1)
+        glVertex3f(pos_ini[0], pos_fim[1], 1)
+        
+        #Esquerda
+        glVertex3f(pos_ini[0], pos_ini[1], 1)
+        glVertex3f(pos_ini[0], pos_fim[1], 1)
+        glVertex3f(pos_ini[0], pos_fim[1], -1)
+        glVertex3f(pos_ini[0], pos_ini[1], -1)
+
+        #baixo
+        glVertex3f(pos_ini[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], -1)
+        glVertex3f(pos_ini[0], pos_ini[1], -1)
+
+        #tras
+        glVertex3f(pos_fim[0], pos_fim[1], -1)
+        glVertex3f(pos_fim[0], pos_ini[1], -1)
+        glVertex3f(pos_ini[0], pos_ini[1], -1)
+        glVertex3f(pos_ini[0], pos_fim[1], -1)
+
+
+        #Direita
+        glVertex3f(pos_fim[0], pos_fim[1], -1)
+        glVertex3f(pos_fim[0], pos_fim[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], 1)
+        glVertex3f(pos_fim[0], pos_ini[1], -1)
+
+        #cima
+        glVertex3f(pos_fim[0], pos_fim[1], -1)
+        glVertex3f(pos_ini[0], pos_fim[1], -1)
+        glVertex3f(pos_ini[0], pos_fim[1], 1)
+        glVertex3f(pos_fim[0], pos_fim[1], 1)       
+        glEnd()
+
+
+        glPopMatrix()
 
 
 class Funcoes():
