@@ -21,8 +21,9 @@ glTranslatef(0.0, 0.0, 3)
 
 font = pygame.font.SysFont("Arial", 24)
 
-Quadrados = funcoes.Quadrados
-desenhando_circulo = False
+Quadrados = funcoes.Quadrados()
+Circulos = funcoes.Circulo()
+
 desenhando = False
 win = tkinter.Tk()
 win.geometry("200x200")
@@ -33,7 +34,7 @@ Funcoes = funcoes.Funcoes(win)
 desenhando_placeholder = False
 movendo = False
 move_x, move_y = 0,0
-
+forma = ''
 
 while True:
     glLoadIdentity()
@@ -50,6 +51,11 @@ while True:
         # clica R para desenhar um quadrado/retangulo
         if event.type == pygame.KEYDOWN and event.key == pygame.K_r:
             desenhando = True
+            forma = "quadrado"
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_c:
+            desenhando = True
+            forma = "circulo"
+            
 
         if desenhando:
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Botão esquerdo pressionado
@@ -70,7 +76,12 @@ while True:
                 end_posY = 1 - end_posY / display[1] * 2
 
                 # print(f"Posição inicial: {(start_posX, start_posY)}, Posição final: {(end_posX, end_posY)}")
-                Quadrados.quadrados.append(((start_posX, start_posY), (end_posX, end_posY), cor))
+                if forma == 'quadrado':
+                    Quadrados.quadrados.append(((start_posX, start_posY), (end_posX, end_posY), cor))
+                elif forma == 'circulo':
+                    Circulos.circulos.append(((start_posX, start_posY), (end_posX, end_posY), cor))
+                    # pass #desenha circulo aqui
+                
         else:
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Botão esquerdo pressionado
                 movendo = True 
@@ -95,8 +106,14 @@ while True:
     if desenhando_placeholder:
         current_pos = (pygame.mouse.get_pos()[0] / display[0] * 2 - 1,
                        1 - pygame.mouse.get_pos()[1] / display[1] * 2)
-        Quadrados.desenha_quadrado(start_pos, current_pos, cor)
-    
+        
+        if forma == "quadrado":
+            Quadrados.desenha_quadrado(start_pos, current_pos, cor)
+        elif forma == 'circulo':
+            glPushMatrix()
+            Circulos.desenha_circulo(start_pos, current_pos, cor)
+            glPopMatrix()
+
     
    
 
@@ -105,6 +122,12 @@ while True:
         # glLoadIdentity()
         glPushMatrix()
         Quadrados.desenha_quadrado(quadrado[0], quadrado[1],  quadrado[2])
+        glPopMatrix()
+
+    for circulo in Circulos.circulos:
+        # glLoadIdentity()
+        glPushMatrix()
+        Circulos.desenha_circulo(circulo[0], circulo[1],  circulo[2])
         glPopMatrix()
 
 

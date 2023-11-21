@@ -10,7 +10,7 @@ class Quadrados():
         pass
 
 
-    def desenha_quadrado(pos_ini, pos_fim, cor):
+    def desenha_quadrado(self, pos_ini, pos_fim, cor):
         glPushMatrix()
         glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
 
@@ -102,6 +102,24 @@ class Quadrados():
 
         glPopMatrix()
 
+
+class Circulo():
+    circulos = []
+    def __init__(self):
+        pass
+
+    def desenha_circulo(self, pos_ini, pos_fim, cor):
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+
+        glColor3f(cor[0], cor[1], cor[2])
+        
+
+        glTranslate(pos_ini[0], pos_ini[1], 0)
+
+        raio = (pos_fim[0] - pos_ini[0])
+
+        quadric = gluNewQuadric()
+        gluSphere(quadric, raio, 100, 100) 
 
 class Funcoes():
     
